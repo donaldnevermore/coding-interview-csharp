@@ -3,7 +3,7 @@
 namespace CodingInterview {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("hahaha");
+            Console.WriteLine("Hello world!");
         }
     }
 }
