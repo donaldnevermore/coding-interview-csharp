@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 
 namespace CodingInterview {
-    public class ListNode {
-        public int Value { get; set; }
-        public ListNode Next { get; set; }
-    }
-
     public class PrintListInReversedOrder {
         public void PrintListReversely(ListNode head) {
             var nodes = new Stack<ListNode>();
