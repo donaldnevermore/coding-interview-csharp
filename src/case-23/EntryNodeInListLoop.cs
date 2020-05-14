@@ -1,6 +1,4 @@
-﻿// Interview 23
-
-namespace CodingInterview {
+﻿namespace CodingInterview {
     public class EntryNodeInListLoop {
         public static ListNode EntryNodeOfLoop(ListNode head) {
             ListNode meetingNode = MeetingNode(head);

@@ -3,16 +3,16 @@
 namespace CodingInterview {
     public class ReplaceSpaces {
         /// <summary>
-        /// Replace every blank with "%20" in a string
+        /// Replace every blank with "%20" in a string.
         /// </summary>
-        /// <param name="str">String array</param>
-        /// <param name="length">Capacity of string array</param>
+        /// <param name="str">The string array.</param>
+        /// <param name="length">The capacity of string array.</param>
         public static void ReplaceBlanks(char[] str, int length) {
             if (str == null || length <= 0) {
                 return;
             }
 
-            // Calculate the new length of the string
+            // Calculate the new length of the string.
             int lengthOriginal = 0;
             int numberOfBlanks = 0;
             int i = 0;

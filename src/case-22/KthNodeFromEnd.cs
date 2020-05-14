@@ -1,6 +1,4 @@
-﻿// Interview 22
-
-namespace CodingInterview {
+﻿namespace CodingInterview {
     public class KthNodeFromEnd {
         public static ListNode FindKthToTail(ListNode head, uint k) {
             if (head == null || k == 0) {

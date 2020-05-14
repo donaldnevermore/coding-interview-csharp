@@ -1,6 +1,4 @@
-﻿// Interview 20
-
-namespace CodingInterview {
+﻿namespace CodingInterview {
     public class NumericString {
         private int index = 0;
 

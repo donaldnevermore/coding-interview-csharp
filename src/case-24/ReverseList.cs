@@ -1,6 +1,4 @@
-﻿// Interview 24
-
-namespace CodingInterview {
+﻿namespace CodingInterview {
     public class ReverseList {
         public static ListNode Reverse(ListNode head) {
             ListNode reversedHead = null;

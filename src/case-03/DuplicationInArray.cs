@@ -18,7 +18,7 @@
                         return true;
                     }
 
-                    // swap numbers[i] and numbers[numbers[i]]
+                    // Swap numbers[i] and numbers[numbers[i]].
                     int temp = numbers[i];
                     numbers[i] = numbers[temp];
                     numbers[temp] = temp;
