@@ -7,10 +7,13 @@ namespace CodingInterview {
                 return;
             }
 
-            var number = new int[n];
+            var numbers = new char[n];
+            for (int i = 0; i < n; i++) {
+                numbers[i] = '0';
+            }
 
-            while (!Increment(number)) {
-                PrintNumber(number);
+            while (!Increment(numbers)) {
+                PrintNumber(numbers);
             }
         }
 
@@ -19,38 +22,38 @@ namespace CodingInterview {
                 return;
             }
 
-            var number = new int[n];
+            var number = new char[n];
 
             for (int i = 0; i < 10; i++) {
-                number[0] = i;
+                number[0] = char.Parse(i.ToString());
                 PrintOneToNRecursively(number, n, 0);
             }
         }
 
-        private static bool Increment(int[] number) {
+        private static bool Increment(char[] numbers) {
             bool isOverflow = false;
-            int nTakeOver = 0;
-            int nLength = number.Length;
+            int takeOver = 0;
+            int len = numbers.Length;
 
-            for (int i = nLength - 1; i >= 0; i--) {
-                int nSum = number[i] + nTakeOver;
+            for (int i = len - 1; i >= 0; i--) {
+                int sum = (numbers[i] - '0') + takeOver;
 
-                if (i == nLength - 1) {
-                    nSum++;
+                if (i == len - 1) {
+                    sum++;
                 }
 
-                if (nSum >= 10) {
+                if (sum >= 10) {
                     if (i == 0) {
                         isOverflow = true;
                     }
                     else {
-                        nSum -= 10;
-                        nTakeOver = 1;
-                        number[i] = nSum;
+                        sum -= 10;
+                        takeOver = 1;
+                        numbers[i] = char.Parse(sum.ToString());
                     }
                 }
                 else {
-                    number[i] = nSum;
+                    numbers[i] = char.Parse(sum.ToString());
                     break;
                 }
             }
@@ -58,25 +61,25 @@ namespace CodingInterview {
             return isOverflow;
         }
 
-        private static void PrintOneToNRecursively(int[] number, int length, int index) {
+        private static void PrintOneToNRecursively(char[] number, int length, int index) {
             if (index == length - 1) {
                 PrintNumber(number);
                 return;
             }
 
             for (int i = 0; i < 10; i++) {
-                number[index + 1] = i;
+                number[index + 1] = char.Parse(i.ToString());
                 PrintOneToNRecursively(number, length, index + 1);
             }
         }
 
 
-        private static void PrintNumber(int[] number) {
+        private static void PrintNumber(char[] number) {
             bool isBeginningZero = true;
-            int nLength = number.Length;
+            int len = number.Length;
 
-            for (int i = 0; i < nLength; i++) {
-                if (isBeginningZero && number[i] != 0) {
+            for (int i = 0; i < len; i++) {
+                if (isBeginningZero && number[i] != '0') {
                     isBeginningZero = false;
                 }
 
