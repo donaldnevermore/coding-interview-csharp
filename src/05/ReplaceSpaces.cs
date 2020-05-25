@@ -13,41 +13,41 @@ namespace CodingInterview {
             }
 
             // Calculate the new length of the string.
-            int lengthOriginal = 0;
-            int numberOfBlanks = 0;
+            int oldLength = 0;
+            int blankCount = 0;
             int i = 0;
             while (str[i] != '\0') {
-                lengthOriginal++;
+                oldLength++;
                 if (str[i] == ' ') {
-                    numberOfBlanks++;
+                    blankCount++;
                 }
 
                 i++;
             }
 
-            int lengthNew = lengthOriginal + numberOfBlanks * 2;
-            if (lengthNew > length) {
+            int newLength = oldLength + blankCount * 2;
+            if (newLength > length) {
                 return;
             }
 
             // Replace blanks from right to left.
-            int indexOriginal = lengthOriginal - 1;
-            int indexNew = lengthNew - 1;
-            while (indexOriginal >= 0 && indexNew > indexOriginal) {
-                if (str[indexOriginal] == ' ') {
-                    str[indexNew] = '0';
-                    indexNew--;
-                    str[indexNew] = '2';
-                    indexNew--;
-                    str[indexNew] = '%';
-                    indexNew--;
+            int oldIndex = oldLength - 1;
+            int newIndex = newLength - 1;
+            while (oldIndex >= 0 && newIndex > oldIndex) {
+                if (str[oldIndex] == ' ') {
+                    str[newIndex] = '0';
+                    newIndex--;
+                    str[newIndex] = '2';
+                    newIndex--;
+                    str[newIndex] = '%';
+                    newIndex--;
                 }
                 else {
-                    str[indexNew] = str[indexOriginal];
-                    indexNew--;
+                    str[newIndex] = str[oldIndex];
+                    newIndex--;
                 }
 
-                indexOriginal--;
+                oldIndex--;
             }
         }
     }

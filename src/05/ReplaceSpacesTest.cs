@@ -6,10 +6,10 @@ namespace CodingInterview.Test {
         [Test]
         public void TestReplaceBlanks() {
             char[] str = {'w', ' ', 'e', '\0', '\0'};
-            char[] strNew = {'w', '%', '2', '0', 'e'};
+            char[] newStr = {'w', '%', '2', '0', 'e'};
             var len = 5;
             ReplaceSpaces.ReplaceBlanks(str, len);
-            Assert.AreEqual(str, strNew);
+            Assert.AreEqual(str, newStr);
         }
     }
 }
