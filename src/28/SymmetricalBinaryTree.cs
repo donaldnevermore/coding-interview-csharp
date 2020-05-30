@@ -5,15 +5,15 @@
         }
 
         private static bool IsSymmetrical(BinaryTreeNode root1, BinaryTreeNode root2) {
-            if (root1==null &&root2==null) {
+            if (root1 == null && root2 == null) {
                 return true;
             }
 
-            if (root1==null || root2 ==null) {
+            if (root1 == null || root2 == null) {
                 return false;
             }
 
-            if (root1.Value!=root2.Value) {
+            if (root1.Value != root2.Value) {
                 return false;
             }
 
