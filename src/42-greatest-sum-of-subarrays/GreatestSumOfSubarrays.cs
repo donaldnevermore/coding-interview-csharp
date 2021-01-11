@@ -1,6 +1,6 @@
 ﻿namespace CodingInterview
 {
-    public class GreatestSumOfSubArrays
+    public class GreatestSumOfSubarrays
     {
         public static int Find(int[] data)
         {
