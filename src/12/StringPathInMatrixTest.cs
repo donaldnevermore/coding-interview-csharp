@@ -5,7 +5,7 @@ namespace CodingInterview {
     public class StringPathInMatrixTest {
         [Test]
         public void TestHasPath() {
-            char[] matrix = {'a', 'b', 't', 'g', 'c', 'f', 'c', 's', 'j', 'd', 'e', 'h'};
+            char[] matrix = { 'a', 'b', 't', 'g', 'c', 'f', 'c', 's', 'j', 'd', 'e', 'h' };
             const string bfce = "bfce";
             const string abfb = "abfb";
             var result1 = StringPathInMatrix.HasPath(matrix, 3, 4, bfce);

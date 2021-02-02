@@ -2,29 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CodingInterview
-{
-    public class KLeastNumbers
-    {
-        public static int[] Get(int[] data, int k)
-        {
-            if (k < 1 || data.Length < k)
-            {
+namespace CodingInterview {
+    public class KLeastNumbers {
+        public static int[] Get(int[] data, int k) {
+            if (k < 1 || data.Length < k) {
                 throw new ArgumentException("Invalid input.");
             }
 
             var leastNumbers = new SortedSet<int>();
-            foreach (var number in data)
-            {
-                if (leastNumbers.Count < k)
-                {
+            foreach (var number in data) {
+                if (leastNumbers.Count < k) {
                     leastNumbers.Add(number);
                 }
-                else
-                {
+                else {
                     var greatest = leastNumbers.Max;
-                    if (number < greatest)
-                    {
+                    if (number < greatest) {
                         leastNumbers.Remove(greatest);
                         leastNumbers.Add(number);
                     }

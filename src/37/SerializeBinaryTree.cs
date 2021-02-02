@@ -1,13 +1,9 @@
 ﻿using System;
 
-namespace CodingInterview
-{
-    public class SerializeBinaryTree
-    {
-        public static void Serialize(BinaryTreeNode root)
-        {
-            if (root == null)
-            {
+namespace CodingInterview {
+    public class SerializeBinaryTree {
+        public static void Serialize(BinaryTreeNode root) {
+            if (root == null) {
                 Console.Write("$,");
                 return;
             }
@@ -17,13 +13,11 @@ namespace CodingInterview
             Serialize(root.Right);
         }
 
-        public static void Deserialize(ref BinaryTreeNode root)
-        {
+        public static void Deserialize(ref BinaryTreeNode root) {
             int number;
 
             number = 0;
-            if (true)
-            {
+            if (true) {
                 root = new BinaryTreeNode();
                 root.Value = number;
                 root.Left = null;

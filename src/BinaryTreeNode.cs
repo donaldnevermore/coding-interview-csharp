@@ -1,7 +1,5 @@
-﻿namespace CodingInterview
-{
-    public class BinaryTreeNode
-    {
+﻿namespace CodingInterview {
+    public class BinaryTreeNode {
         public int Value { get; set; }
         public BinaryTreeNode Left { get; set; }
         public BinaryTreeNode Right { get; set; }

@@ -1,13 +1,10 @@
 using NUnit.Framework;
 
-namespace CodingInterview
-{
+namespace CodingInterview {
     [TestFixture]
-    public class NumberOfOnesTest
-    {
+    public class NumberOfOnesTest {
         [Test]
-        public void Test()
-        {
+        public void Test() {
             var i = 12;
             var result = NumberOfOnes.NumberOfOnesBetween(i);
             Assert.AreEqual(5, result);

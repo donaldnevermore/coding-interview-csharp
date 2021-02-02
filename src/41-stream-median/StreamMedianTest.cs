@@ -1,13 +1,10 @@
 ﻿using NUnit.Framework;
 
-namespace CodingInterview
-{
+namespace CodingInterview {
     [TestFixture]
-    public class StreamMedianTest
-    {
+    public class StreamMedianTest {
         [Test]
-        public void Test()
-        {
+        public void Test() {
             var sm = new StreamMedian();
             sm.Insert(2);
             sm.Insert(4);

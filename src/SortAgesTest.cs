@@ -1,13 +1,10 @@
 ﻿using NUnit.Framework;
 
-namespace CodingInterview.Test
-{
+namespace CodingInterview.Test {
     [TestFixture]
-    public class SortAgesTest
-    {
+    public class SortAgesTest {
         [Test]
-        public void TestSort()
-        {
+        public void TestSort() {
             int[] arr = { 2, 5, 3, 3 };
             SortAges.Sort(arr);
             int[] arrSorted = { 2, 3, 3, 5 };

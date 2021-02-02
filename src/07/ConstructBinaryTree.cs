@@ -15,7 +15,7 @@ namespace CodingInterview {
 
             int length = preorder.Length;
             int rootValue = preorder[0];
-            var root = new BinaryTreeNode {Value = rootValue, Left = null, Right = null};
+            var root = new BinaryTreeNode { Value = rootValue, Left = null, Right = null };
 
             // Only one value, that's the root
             if (length == 1) {
