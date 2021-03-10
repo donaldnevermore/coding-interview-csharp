@@ -2,11 +2,11 @@
     public class ReverseList {
         public static ListNode Reverse(ListNode head) {
             ListNode reversedHead = null;
-            ListNode node = head;
+            var node = head;
             ListNode previous = null;
 
             while (node != null) {
-                ListNode next = node.Next;
+                var next = node.Next;
 
                 if (next == null) {
                     reversedHead = node;
