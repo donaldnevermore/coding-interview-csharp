@@ -1,24 +1,27 @@
 ﻿namespace CodingInterview {
     public class EntryNodeInListLoop {
         public static ListNode EntryNodeOfLoop(ListNode head) {
-            ListNode meetingNode = MeetingNode(head);
-            if (meetingNode == null) {
+            var meetingNode = MeetingNode(head);
+            if (meetingNode is null) {
                 return null;
             }
 
-            ListNode countingNode = meetingNode;
-            int nodesInLoop = 1;
+            // Find the number of nodes in the loop.
+            var countingNode = meetingNode;
+            var nodesInLoop = 1;
             while (countingNode.Next != meetingNode) {
                 countingNode = countingNode.Next;
                 nodesInLoop++;
             }
 
-            ListNode ahead = head;
-            for (int i = 0; i < nodesInLoop; i++) {
+            // ahead goes n steps.
+            var ahead = head;
+            for (var i = 0; i < nodesInLoop; i++) {
                 ahead = ahead.Next;
             }
 
-            ListNode behind = head;
+            // ahead and behind goes together until they meet.
+            var behind = head;
             while (ahead != behind) {
                 ahead = ahead.Next;
                 behind = behind.Next;
@@ -27,27 +30,26 @@
             return ahead;
         }
 
+        /// <Summary>
+        ///     Find the meeting node in the list loop.
+        /// </Summary>
         private static ListNode MeetingNode(ListNode head) {
-            if (head == null) {
+            if (head is null) {
                 return null;
             }
 
-            ListNode slow = head.Next;
-            if (slow == null) {
-                return null;
-            }
+            var slow = head;
+            var fast = head.Next;
 
-            ListNode fast = slow.Next;
-
-            while (fast != null && slow != null) {
-                if (fast == slow) {
+            while (slow is not null && fast is not null) {
+                if (slow == fast) {
                     return fast;
                 }
 
+                // slow goes 1 step, fast goes 2 steps.
                 slow = slow.Next;
-
                 fast = fast.Next;
-                if (fast != null) {
+                if (fast is not null) {
                     fast = fast.Next;
                 }
             }
