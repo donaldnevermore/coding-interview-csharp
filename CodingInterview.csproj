@@ -3,8 +3,6 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
-        <StartupObject>CodingInterview.Program</StartupObject>
-        <RootNamespace>CodingInterview</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
