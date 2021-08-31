@@ -1,7 +1,7 @@
 ﻿namespace CodingInterview {
     public class DuplicationInArray {
         public bool Duplicate(int[] numbers, int length, ref int duplication) {
-            if (numbers == null || length <= 0) {
+            if (length <= 0) {
                 return false;
             }
 
@@ -29,7 +29,7 @@
         }
 
         public int GetDuplication(int[] numbers, int length) {
-            if (numbers == null || length <= 0) {
+            if (length <= 0) {
                 return -1;
             }
 
@@ -58,10 +58,6 @@
         }
 
         private int CountRange(int[] numbers, int length, int start, int end) {
-            if (numbers == null) {
-                return 0;
-            }
-
             var count = 0;
             for (int i = 0; i < length; i++) {
                 if (start <= numbers[i] && numbers[i] <= end) {

@@ -1,16 +1,22 @@
+using System.Collections.Generic;
+
 namespace CodingInterview {
-    public class LongestSubstringWithoutDup {
-        public static int Find(string str) {
+    public class LengthOfLongestSubstring {
+        public static int Find(string s) {
+            if (string.IsNullOrEmpty(s)) {
+                return 0;
+            }
+
             var curLength = 0;
             var maxLength = 0;
 
-            var position = new int[26];
-            for (var i = 0; i < 26; i++) {
-                position[i] = -1;
-            }
+            var position = new Dictionary<char, int>();
 
-            for (var i = 0; i < str.Length; i++) {
-                var prevIndex = position[str[i] - 'a'];
+            for (var i = 0; i < s.Length; i++) {
+                var ok = position.TryGetValue(s[i], out var prevIndex);
+                if (!ok) {
+                    prevIndex = -1;
+                }
 
                 // Has no duplicate or
                 // has a duplicate and the length is less than the distance between the duplicates
@@ -25,7 +31,7 @@ namespace CodingInterview {
                     curLength = i - prevIndex;
                 }
 
-                position[str[i] - 'a'] = i;
+                position[s[i]] = i;
             }
 
             if (curLength > maxLength) {
