@@ -1,6 +1,6 @@
 ﻿namespace CodingInterview {
     public sealed class Singleton {
-        public static Singleton Instance => new Singleton();
+        public static readonly Singleton Instance = new Singleton();
 
         private Singleton() {
         }
@@ -13,7 +13,7 @@
         }
 
         private class Nested {
-            internal static Singleton5 Instance => new Singleton5();
+            internal static readonly Singleton5 Instance = new Singleton5();
 
             static Nested() {
             }
