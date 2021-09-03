@@ -13,7 +13,7 @@ namespace CodingInterview {
 
             while (nodes.Count != 0) {
                 node = nodes.Pop();
-                Console.WriteLine(node.Value);
+                Console.WriteLine(node.Val);
             }
         }
     }

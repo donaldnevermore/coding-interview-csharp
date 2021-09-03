@@ -8,7 +8,7 @@
             // The tail node isn't the one to be deleted
             if (toBeDeleted.Next != null) {
                 ListNode next = toBeDeleted.Next;
-                toBeDeleted.Value = next.Value;
+                toBeDeleted.Val = next.Val;
                 toBeDeleted.Next = next.Next;
 
                 next = null;

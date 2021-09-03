@@ -11,16 +11,16 @@
             while (node != null) {
                 ListNode next = node.Next;
 
-                bool needDelete = next != null && next.Value == node.Value;
+                bool needDelete = next != null && next.Val == node.Val;
                 if (!needDelete) {
                     previous = node;
                     node = node.Next;
                 }
                 else {
-                    int value = node.Value;
+                    int value = node.Val;
                     ListNode toBeDeleted = node;
 
-                    while (toBeDeleted != null && toBeDeleted.Value == value) {
+                    while (toBeDeleted != null && toBeDeleted.Val == value) {
                         next = toBeDeleted.Next;
                         toBeDeleted = null;
                         toBeDeleted = next;
