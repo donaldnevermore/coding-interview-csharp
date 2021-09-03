@@ -29,13 +29,13 @@
                     newIndex--;
                     newArr[newIndex] = '%';
                     newIndex--;
+                    oldIndex--;
                 }
                 else {
                     newArr[newIndex] = s[oldIndex];
                     newIndex--;
+                    oldIndex--;
                 }
-
-                oldIndex--;
             }
 
             return string.Concat(newArr);
