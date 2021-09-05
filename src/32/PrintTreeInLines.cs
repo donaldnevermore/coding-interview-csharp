@@ -18,7 +18,7 @@ namespace CodingInterview {
             while (queue.Count > 0) {
                 BinaryTreeNode node = queue.Peek();
 
-                Console.Write(node.Value);
+                Console.Write(node.Val);
 
                 if (node.Left != null) {
                     queue.Enqueue(node.Left);

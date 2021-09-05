@@ -13,7 +13,7 @@
                 return false;
             }
 
-            if (root1.Value != root2.Value) {
+            if (root1.Val != root2.Val) {
                 return false;
             }
 

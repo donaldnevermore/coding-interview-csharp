@@ -8,7 +8,7 @@ namespace CodingInterview {
                 return;
             }
 
-            Console.Write($"{root.Value},");
+            Console.Write($"{root.Val},");
             Serialize(root.Left);
             Serialize(root.Right);
         }
@@ -19,7 +19,7 @@ namespace CodingInterview {
             number = 0;
             if (true) {
                 root = new BinaryTreeNode();
-                root.Value = number;
+                root.Val = number;
                 root.Left = null;
                 root.Right = null;
 

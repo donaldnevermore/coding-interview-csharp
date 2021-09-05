@@ -19,7 +19,7 @@ namespace CodingInterview {
 
                 currentStack.Pop();
 
-                Console.Write($"{node.Value} ");
+                Console.Write($"{node.Val} ");
 
                 if (isOddLevel) {
                     if (node.Left != null) {

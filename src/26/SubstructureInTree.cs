@@ -4,7 +4,7 @@
             bool result = false;
 
             if (root1 != null && root2 != null) {
-                if (root1.Value == root2.Value) {
+                if (root1.Val == root2.Val) {
                     result = Tree1HasTree2(root1, root2);
                 }
 
@@ -29,7 +29,7 @@
                 return false;
             }
 
-            if (root1.Value != root2.Value) {
+            if (root1.Val != root2.Val) {
                 return false;
             }
 

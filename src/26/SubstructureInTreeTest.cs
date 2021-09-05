@@ -6,26 +6,26 @@ namespace CodingInterview {
         [Test]
         public void TestInTree() {
             var root1 = new BinaryTreeNode {
-                Value = 8,
+                Val = 8,
                 Left = new BinaryTreeNode {
-                    Value = 8,
-                    Left = new BinaryTreeNode {Value = 9},
-                    Right = new BinaryTreeNode {Value = 2}
+                    Val = 8,
+                    Left = new BinaryTreeNode {Val = 9},
+                    Right = new BinaryTreeNode {Val = 2}
                 },
-                Right = new BinaryTreeNode {Value = 7}
+                Right = new BinaryTreeNode {Val = 7}
             };
             var root2 = new BinaryTreeNode {
-                Value = 8,
-                Left = new BinaryTreeNode {Value = 9},
-                Right = new BinaryTreeNode {Value = 2}
+                Val = 8,
+                Left = new BinaryTreeNode {Val = 9},
+                Right = new BinaryTreeNode {Val = 2}
             };
             Assert.AreEqual(true, SubstructureInTree.HasSubTree(root1, root2));
         }
 
         [Test]
         public void TestNotInTree() {
-            var root1 = new BinaryTreeNode {Value = 1};
-            var root2 = new BinaryTreeNode {Value = 2};
+            var root1 = new BinaryTreeNode {Val = 1};
+            var root2 = new BinaryTreeNode {Val = 2};
             Assert.AreEqual(false, SubstructureInTree.HasSubTree(root1, root2));
             Assert.AreEqual(false, SubstructureInTree.HasSubTree(null, null));
             Assert.AreEqual(false, SubstructureInTree.HasSubTree(null, root2));

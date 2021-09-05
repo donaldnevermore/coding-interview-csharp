@@ -15,8 +15,8 @@ namespace CodingInterview {
         }
 
         private static void FindPath(BinaryTreeNode root, int expectedSum, Stack<int> path, int currentSum) {
-            currentSum += root.Value;
-            path.Push(root.Value);
+            currentSum += root.Val;
+            path.Push(root.Val);
 
             bool isLeaf = root.Left == null && root.Right == null;
             if (currentSum == expectedSum && isLeaf) {
