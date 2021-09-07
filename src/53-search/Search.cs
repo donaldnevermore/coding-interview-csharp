@@ -42,6 +42,30 @@
             return -1;
         }
 
+        public static int NumberEqualsIndex(int[] nums) {
+            if (nums.Length == 0) {
+                return -1;
+            }
+
+            var start = 0;
+            var end = nums.Length - 1;
+
+            while (start <= end) {
+                var mid = start + (end - start) / 2;
+                if (nums[mid] == mid) {
+                    return mid;
+                }
+                else if (nums[mid] > mid) {
+                    end = mid - 1;
+                }
+                else {
+                    start = mid + 1;
+                }
+            }
+
+            return -1;
+        }
+
         private static int GetFirstK(int[] nums, int target, int start, int end) {
             if (start > end) {
                 return -1;

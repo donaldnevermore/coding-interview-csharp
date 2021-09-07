@@ -24,5 +24,20 @@ namespace CodingInterview {
             var got2 = Search.MissingNumber(nums2);
             Assert.AreEqual(8, got2);
         }
+
+        [Test]
+        public void TestNumberEqualsIndex() {
+            var nums = new[] { 0 };
+            var got = Search.NumberEqualsIndex(nums);
+            Assert.AreEqual(0, got);
+
+            var nums2 = new[] { -3, -1, 1, 3, 5 };
+            var got2 = Search.NumberEqualsIndex(nums2);
+            Assert.AreEqual(3, got2);
+
+            var nums3 = new[] { 1 };
+            var got3 = Search.NumberEqualsIndex(nums3);
+            Assert.AreEqual(-1, got3);
+        }
     }
 }
