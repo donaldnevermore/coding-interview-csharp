@@ -1,7 +1,7 @@
 ﻿namespace CodingInterview {
     public class Search {
         public static int Get(int[] nums, int target) {
-            if (nums.Length <= 0) {
+            if (nums.Length == 0) {
                 return 0;
             }
 
@@ -13,6 +13,33 @@
             }
 
             return 0;
+        }
+
+        public static int MissingNumber(int[] nums) {
+            if (nums.Length == 0) {
+                return -1;
+            }
+
+            var start = 0;
+            var end = nums.Length - 1;
+            while (start <= end) {
+                var mid = start + (end - start) / 2;
+                if (nums[mid] == mid) {
+                    start = mid + 1;
+                }
+                else if ((mid > 0 && nums[mid - 1] == mid - 1) || mid == 0) {
+                    return mid;
+                }
+                else {
+                    end = mid - 1;
+                }
+
+                if (start == nums.Length) {
+                    return nums.Length;
+                }
+            }
+
+            return -1;
         }
 
         private static int GetFirstK(int[] nums, int target, int start, int end) {
