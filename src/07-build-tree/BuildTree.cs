@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CodingInterview {
     public class BuildTree {
         public static TreeNode? Build(int[] preorder, int[] inorder) {
-            if (preorder.Length <= 0 || inorder.Length <= 0) {
+            if (preorder.Length == 0 || inorder.Length == 0) {
                 return null;
             }
 
@@ -46,6 +47,63 @@ namespace CodingInterview {
             }
 
             return root;
+        }
+
+        /// <summary>
+        /// Returns the keys in the BST in level order traversal,
+        /// null leaf nodes included.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public static int?[] LevelOrder(TreeNode? root) {
+            if (root is null) {
+                return Array.Empty<int?>();
+            }
+
+            var vals = new List<int?>();
+            var height = GetHeight(root);
+            var depth = 0;
+
+            var queue = new Queue<TreeNode?>();
+            queue.Enqueue(root);
+
+            while (queue.Count != 0) {
+                depth++;
+
+                var count = 0;
+                var size = queue.Count;
+                // Dequeue all nodes in the current depth.
+                while (count < size) {
+                    var node = queue.Dequeue();
+                    count++;
+
+                    if (node is not null) {
+                        vals.Add(node.Val);
+                        queue.Enqueue(node.Left);
+                        queue.Enqueue(node.Right);
+                    }
+                    else if (depth <= height) {
+                        vals.Add(null);
+                    }
+                }
+            }
+
+            return vals.ToArray();
+        }
+
+        /// <summary>
+        /// Get the max depth of a tree.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public static int GetHeight(TreeNode? root) {
+            if (root is null) {
+                return 0;
+            }
+
+            var left = GetHeight(root.Left);
+            var right = GetHeight(root.Right);
+            return Math.Max(left, right) + 1;
         }
     }
 }
