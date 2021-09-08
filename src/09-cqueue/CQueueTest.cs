@@ -2,10 +2,10 @@
 
 namespace CodingInterview {
     [TestFixture]
-    public class QueueWithTwoStacksTest {
+    public class CQueueTest {
         [Test]
-        public void TestQueue() {
-            var queue = new QueueWithTwoStacks<char>();
+        public void TestCQueue() {
+            var queue = new CQueue();
             queue.AppendTail('a');
             queue.AppendTail('b');
             queue.AppendTail('c');
