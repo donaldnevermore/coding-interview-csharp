@@ -1,13 +1,13 @@
 ﻿namespace CodingInterview {
     public class NextNodeInBinaryTree {
-        public static BinaryTreeNode GetNext(BinaryTreeNode node) {
-            if (node == null) {
+        public static BinaryTreeNode? GetNext(BinaryTreeNode? node) {
+            if (node is null) {
                 return null;
             }
 
-            BinaryTreeNode next = null;
+            BinaryTreeNode? next = null;
 
-            if (node.Right != null) {
+            if (node.Right is not null) {
                 // Find the most-left node in the right sub-tree.
                 BinaryTreeNode current = node.Right;
                 while (current.Left != null) {
@@ -16,16 +16,16 @@
 
                 next = current;
             }
-            else if (node.Parent != null) {
+            else if (node.Parent is not null) {
                 BinaryTreeNode current = node;
-                BinaryTreeNode parent = node.Parent;
+                BinaryTreeNode? parent = node.Parent;
 
-                // If the node is the right sub-node of its parent, traverse through its parents
-                // until you get a node which is the left sub-node of that node's parent,
+                // If the node is the right child node of its parent, traverse through its parents
+                // until you get a node which is the left child node of that node's parent,
                 // and the parent of that node is the next node we want.
                 //
-                // If the node is the left sub-node of its parent, the next node is its parent.
-                while (parent != null && current == parent.Right) {
+                // If the node is the left child node of its parent, the next node is its parent.
+                while (parent is not null && current == parent.Right) {
                     current = parent;
                     parent = parent.Parent;
                 }

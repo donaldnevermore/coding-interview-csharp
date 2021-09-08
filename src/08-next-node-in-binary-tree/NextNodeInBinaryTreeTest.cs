@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace CodingInterview.Test {
+namespace CodingInterview {
     [TestFixture]
     public class NextNodeInBinaryTreeTest {
         [Test]
