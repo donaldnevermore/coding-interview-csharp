@@ -8,7 +8,7 @@
             BinaryTreeNode? next = null;
 
             if (node.Right is not null) {
-                // Find the most-left node in the right sub-tree.
+                // Find the left-most node in the right subtree.
                 BinaryTreeNode current = node.Right;
                 while (current.Left != null) {
                     current = current.Left;
@@ -24,7 +24,7 @@
                 // until you get a node which is the left child node of that node's parent,
                 // and the parent of that node is the next node we want.
                 //
-                // If the node is the left child node of its parent, the next node is its parent.
+                // If the node is the left child node of its parent, the next node is the parent.
                 while (parent is not null && current == parent.Right) {
                     current = parent;
                     parent = parent.Parent;
