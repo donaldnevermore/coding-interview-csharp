@@ -39,5 +39,44 @@ namespace CodingInterview {
                 return (num & lowBit) > 0;
             }
         }
+
+        public static int Single(int[] nums) {
+            if (nums.Length < 1) {
+                return -1;
+            }
+
+            var bits = AddEveryBits(nums);
+            var n = BuildFromBits(bits);
+            return n;
+
+            static int[] AddEveryBits(int[] nums) {
+                var bits = new int[32];
+
+                for (var i = 0; i < nums.Length; i++) {
+                    var bitMask = 1;
+
+                    for (var j = bits.Length - 1; j >= 0; j--) {
+                        var bit = nums[i] & bitMask;
+                        if (bit != 0) {
+                            bits[j]++;
+                        }
+
+                        bitMask <<= 1;
+                    }
+                }
+
+                return bits;
+            }
+
+            static int BuildFromBits(int[] bits) {
+                var n = 0;
+                for (var i = 0; i < bits.Length; i++) {
+                    n <<= 1;
+                    n += bits[i] % 3;
+                }
+
+                return n;
+            }
+        }
     }
 }

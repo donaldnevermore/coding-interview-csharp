@@ -23,5 +23,12 @@ namespace CodingInterview {
             var t = got.SequenceEqual(res1) || got.SequenceEqual(res2);
             Assert.IsTrue(t);
         }
+
+        [Test]
+        public void Test3() {
+            var arr = new[] { 3, 4, 3, 3 };
+            var got = SingleNumbers.Single(arr);
+            Assert.AreEqual(4, got);
+        }
     }
 }
