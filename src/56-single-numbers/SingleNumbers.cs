@@ -21,23 +21,23 @@ namespace CodingInterview {
             }
 
             return arr;
-        }
 
-        private static int GetXorResult(int[] nums) {
-            var n = 0;
-            for (var i = 0; i < nums.Length; i++) {
-                n ^= nums[i];
+            static int GetXorResult(int[] nums) {
+                var n = 0;
+                for (var i = 0; i < nums.Length; i++) {
+                    n ^= nums[i];
+                }
+
+                return n;
             }
 
-            return n;
-        }
+            static int GetLowBit1(int num) {
+                return num & -num;
+            }
 
-        private static int GetLowBit1(int num) {
-            return num & -num;
-        }
-
-        private static bool IsBit1(int num, int lowBit) {
-            return (num & lowBit) > 0;
+            static bool IsBit1(int num, int lowBit) {
+                return (num & lowBit) > 0;
+            }
         }
     }
 }
