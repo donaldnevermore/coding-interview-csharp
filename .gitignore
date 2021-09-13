@@ -3,10 +3,10 @@
 .idea/
 .vs/
 
-# Compiled files
+# Compiled
 bin/
 obj/
 
-# User-specific files
+# User-specific
 *.user
 global.json
