@@ -11,8 +11,8 @@
             var visited = new bool[rows, cols];
 
             var pathLength = 0;
-            for (int row = 0; row < rows; row++) {
-                for (int col = 0; col < cols; col++) {
+            for (var row = 0; row < rows; row++) {
+                for (var col = 0; col < cols; col++) {
                     if (HasPathCore(row, col)) {
                         return true;
                     }
@@ -29,19 +29,18 @@
 
                 var hasPath = false;
 
-                if (row >= 0 &&
-                    row < rows &&
-                    col >= 0 &&
-                    col < cols &&
+                if (row >= 0 && row < rows &&
+                    col >= 0 && col < cols &&
                     board[row][col] == word[pathLength] &&
-                    !visited[row, col]) {
+                    !visited[row, col]
+                ) {
                     pathLength++;
                     visited[row, col] = true;
 
                     hasPath = HasPathCore(row, col - 1) ||
-                              HasPathCore(row - 1, col) ||
-                              HasPathCore(row, col + 1) ||
-                              HasPathCore(row + 1, col);
+                        HasPathCore(row - 1, col) ||
+                        HasPathCore(row, col + 1) ||
+                        HasPathCore(row + 1, col);
 
                     if (!hasPath) {
                         pathLength--;
