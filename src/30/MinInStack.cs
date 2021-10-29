@@ -4,8 +4,8 @@ using System.Linq;
 
 namespace CodingInterview {
     public class MinInStack {
-        private Stack<int> data = new Stack<int>();
-        private Stack<int> mins = new Stack<int>();
+        private Stack<int> data = new();
+        private Stack<int> mins = new();
 
         public void Push(int number) {
             data.Push(number);
@@ -14,7 +14,7 @@ namespace CodingInterview {
                 mins.Push(0);
             }
             else {
-                int min = Min();
+                var min = Min();
                 if (number < min) {
                     mins.Push(data.Count - 1);
                 }
@@ -26,8 +26,8 @@ namespace CodingInterview {
                 throw new Exception("The stack is empty.");
             }
 
-            int popIndex = data.Count - 1;
-            int minIndex = mins.Peek();
+            var popIndex = data.Count - 1;
+            var minIndex = mins.Peek();
 
             if (popIndex == minIndex) {
                 mins.Pop();
@@ -41,7 +41,7 @@ namespace CodingInterview {
                 throw new Exception("The stack is empty.");
             }
 
-            int minIndex = mins.Peek();
+            var minIndex = mins.Peek();
             var array = data.Reverse().ToArray();
             return array[minIndex];
         }
