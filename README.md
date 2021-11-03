@@ -1,6 +1,6 @@
 ﻿# Introduction
 
-Exercises in *Coding Interview Chinese Second Edition*, implemented in C#.
+Exercises in *Coding Interview Chinese 2nd Edition*, implemented in C#.
 
 ## Getting Started
 
