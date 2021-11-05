@@ -8,5 +8,6 @@ bin/
 obj/
 
 # User-specific
-*.user
+*.DotSettings
+*.DotSettings.user
 global.json
