@@ -12,6 +12,15 @@ public class LowestCommonAncestorTest {
 
         var node2 = LowestCommonAncestor.GetBST(root, new TreeNode { Val = 2 }, new TreeNode { Val = 4 });
         Assert.AreEqual(2, node2?.Val);
+    }
 
+    [Test]
+    public void TestGetDFS() {
+        var root = BuildTree.Build(new[] { 3, 5, 6, 2, 7, 4, 1, 0, 8 }, new[] { 6, 5, 7, 2, 4, 3, 0, 1, 8 });
+        var node1 = LowestCommonAncestor.GetDFS(root, new TreeNode { Val = 5 }, new TreeNode { Val = 1 });
+        Assert.AreEqual(3, node1?.Val);
+
+        var node2 = LowestCommonAncestor.GetDFS(root, new TreeNode { Val = 5 }, new TreeNode { Val = 4 });
+        Assert.AreEqual(5, node2?.Val);
     }
 }
