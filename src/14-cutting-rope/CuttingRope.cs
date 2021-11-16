@@ -5,34 +5,23 @@ public class CuttingRope {
         if (n <= 1) {
             return 0;
         }
-        if (n <= 3) {
-            return n - 1;
-        }
 
-        var products = new int[n + 1];
+        var dp = new int[n + 1];
 
-        // Because lengths less than or equal to 3 are immediately returned,
-        // we set these initial values only for calculation.
-        products[0] = 0;
-        products[1] = 1;
-        products[2] = 2;
-        products[3] = 3;
+        for (var i = 2; i <= n; i++) {
+            var max = 0;
 
-        int max;
-        for (var i = 4; i <= n; i++) {
-            max = 0;
             for (var j = 1; j <= i / 2; j++) {
-                var product = products[j] * products[i - j];
-                if (max < product) {
-                    max = product;
+                var larger = Math.Max(j * (i - j), j * dp[i - j]);
+                if (max < larger) {
+                    max = larger;
                 }
-
-                products[i] = max;
             }
+
+            dp[i] = max;
         }
 
-        max = products[n];
-        return max;
+        return dp[n];
     }
 
     public static int MaxProductGreedy(int n) {
