@@ -2,6 +2,10 @@
 
 public class MyPow {
     public static double Pow(double x, int n) {
+        if (x == 0.0) {
+            return 0.0;
+        }
+
         var absExponent = n < 0 ? -n : n;
 
         var result = PowUnsignedExponent(x, (uint)absExponent);
@@ -14,6 +18,7 @@ public class MyPow {
 
     public static double PowUnsignedExponent(double num, uint exponent) {
         var result = 1.0;
+
         for (var i = 0; i < exponent; i++) {
             result *= num;
         }
@@ -21,7 +26,7 @@ public class MyPow {
         return result;
     }
 
-    public static double PowUnsignedExponentFast(double num, uint exponent) {
+    public static double PowUnsignedExponentRecursive(double num, uint exponent) {
         if (exponent == 0) {
             return 1;
         }
@@ -30,7 +35,7 @@ public class MyPow {
         }
 
         // exponent / 2
-        var result = PowUnsignedExponentFast(num, exponent >> 1);
+        var result = PowUnsignedExponentRecursive(num, exponent >> 1);
 
         result *= result;
 
