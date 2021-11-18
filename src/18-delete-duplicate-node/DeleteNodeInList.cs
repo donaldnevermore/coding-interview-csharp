@@ -1,4 +1,4 @@
-﻿namespace CodingInterview;
+namespace CodingInterview;
 
 public class DeleteNodeInList {
     public static void DeleteNode(ListNode? head, ListNode? toBeDeleted) {
@@ -29,5 +29,31 @@ public class DeleteNodeInList {
             node.Next = null;
             toBeDeleted = null;
         }
+    }
+
+    public ListNode? Delete(ListNode? head, int val) {
+        if (head is null) {
+            return null;
+        }
+
+        if (head.Val == val) {
+            var newHead = head.Next;
+            head.Next = null;
+            return newHead;
+        }
+
+        var pre = head;
+        var cur = pre.Next;
+
+        while (cur is not null && cur.Val != val) {
+            pre = cur;
+            cur = cur.Next;
+        }
+
+        if (cur is not null) {
+            pre.Next = cur.Next;
+        }
+
+        return head;
     }
 }
