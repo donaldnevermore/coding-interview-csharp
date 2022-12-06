@@ -1,24 +1,23 @@
-﻿namespace CodingInterview {
-    public class ReverseList {
-        public static ListNode Reverse(ListNode head) {
-            ListNode reversedHead = null;
-            var node = head;
-            ListNode previous = null;
+namespace CodingInterview;
 
-            while (node != null) {
-                var next = node.Next;
+public class ReverseList {
+    public static ListNode? Reverse(ListNode? head) {
+        ListNode? reverseHead = null;
+        ListNode? prev = null;
+        var node = head;
 
-                if (next == null) {
-                    reversedHead = node;
-                }
+        while (node is not null) {
+            var next = node.Next;
 
-                node.Next = previous;
-
-                previous = node;
-                node = next;
+            if (next is null) {
+                reverseHead = node;
             }
 
-            return reversedHead;
+            node.Next = prev;
+            prev = node;
+            node = next;
         }
+
+        return reverseHead;
     }
 }
