@@ -1,17 +1,27 @@
-﻿namespace CodingInterview;
-
 using NUnit.Framework;
+
+namespace AgileSoftwareDevelopment.SingletonAndMonostate;
 
 [TestFixture]
 public class SingletonTest {
-    [Test]
-    public void Test() {
-        var a = Singleton.Instance;
-        var b = Singleton.Instance;
-        Assert.AreSame(a, b);
+  [Test]
+  public void TestCreateSingleton() {
+    var s = Singleton.Instance;
+    var s2 = Singleton.Instance;
+    Assert.AreSame(s, s2);
+  }
 
-        var c = Singleton5.Instance;
-        var d = Singleton5.Instance;
-        Assert.AreSame(c, d);
+  [Test]
+  public void TestNoPublicConstructors() {
+    var singleton = typeof(Singleton);
+    var ctors = singleton.GetConstructors();
+    var hasPublicConstructor = false;
+    foreach (var c in ctors) {
+      if (c.IsPublic) {
+        hasPublicConstructor = true;
+        break;
+      }
     }
+    Assert.IsFalse(hasPublicConstructor);
+  }
 }

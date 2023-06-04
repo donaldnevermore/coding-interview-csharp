@@ -1,63 +1,61 @@
-﻿namespace CodingInterview;
+namespace CodingInterview;
 
 public class FindRepeatNumber {
-    public static int Get(int[] nums) {
-        foreach (var v in nums) {
-            if (v < 0 || v > nums.Length - 1) {
-                return -1;
-            }
-        }
-
-        for (var i = 0; i < nums.Length; i++) {
-            while (nums[i] != i) {
-                if (nums[i] == nums[nums[i]]) {
-                    return nums[i];
-                }
-
-                // Swap nums[i] and nums[nums[i]].
-                var temp = nums[i];
-                nums[i] = nums[temp];
-                nums[temp] = temp;
-            }
-        }
-
+  public static int Get(int[] nums) {
+    foreach (int v in nums) {
+      if (v < 0 || v > nums.Length - 1) {
         return -1;
+      }
     }
 
-    public static int GetWithArrayIntact(int[] numbers) {
-        var start = 1;
-        var end = numbers.Length - 1;
-        while (end >= start) {
-            var mid = start + ((end - start) >> 1);
-            var count = CountRange(numbers, start, mid);
-            if (end == start) {
-                if (count > 1) {
-                    return start;
-                }
-                else {
-                    break;
-                }
-            }
-
-            if (count > (mid - start + 1)) {
-                end = mid;
-            }
-            else {
-                start = mid + 1;
-            }
+    for (int i = 0; i < nums.Length; i++) {
+      while (nums[i] != i) {
+        int temp = nums[i];
+        if (nums[i] == nums[temp]) {
+          return nums[i];
         }
 
-        return -1;
+        // Swap nums[i] and the original nums[nums[i]].
+        nums[i] = nums[temp];
+        nums[temp] = temp;
+      }
     }
 
-    private static int CountRange(int[] numbers, int start, int end) {
-        var count = 0;
-        foreach (var n in numbers) {
-            if (start <= n && n <= end) {
-                count++;
-            }
+    return -1;
+  }
+
+  public static int GetWithArrayIntact(int[] numbers) {
+    int start = 1;
+    int end = numbers.Length - 1;
+    while (end >= start) {
+      int mid = start + ((end - start) >> 1);
+      int count = CountRange(numbers, start, mid);
+      if (end == start) {
+        if (count > 1) {
+          return start;
+        } else {
+          break;
         }
+      }
 
-        return count;
+      if (count > (mid - start + 1)) {
+        end = mid;
+      } else {
+        start = mid + 1;
+      }
     }
+
+    return -1;
+  }
+
+  private static int CountRange(int[] numbers, int start, int end) {
+    int count = 0;
+    foreach (int n in numbers) {
+      if (start <= n && n <= end) {
+        count++;
+      }
+    }
+
+    return count;
+  }
 }
