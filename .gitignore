@@ -11,3 +11,4 @@ obj/
 *.DotSettings
 *.DotSettings.user
 global.json
+*.sln
